@@ -30,6 +30,8 @@ public class Cart extends MainMenu {
         this.total = total;
     }
 
+
+
     public void display(ArrayList<MainMenu> stL) {
         if (getInput() == 1) {
             for (int i = 0; i <= 3; i++) {
@@ -49,6 +51,7 @@ public class Cart extends MainMenu {
 
     public void userInput(ArrayList<MainMenu> stL,int i) {
         int flag = 0;
+        j=0;
         do {
             System.out.println("1)Starters\n" + "2)BBQ\n" + "3)FastFood");
             System.out.println("Select a type");
@@ -95,7 +98,7 @@ public class Cart extends MainMenu {
             }
 
         }
-
+        items.clear();
 //        for (i = 0; i <= j; i++) {
 //            System.out.println(items.get(i));
 //        }

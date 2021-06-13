@@ -33,7 +33,5 @@ public class Main {
         CheckOut check = new CheckOut(stL,cart);
 
 
-
-
     }
 }

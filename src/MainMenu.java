@@ -1,11 +1,16 @@
 
 
 abstract public class MainMenu {
-    private int id=0;
+    private int id;
+    private static int count;
     private String name;
     private int price;
 
-
+//    public MainMenu() {
+//        count++;
+//        setId(count);
+//
+//    }
 
     public int getId() {
         return id;
@@ -31,8 +36,7 @@ abstract public class MainMenu {
         this.price = price;
     }
 
-    public String toString(int i){
-        setId(i);
-        return  getId()+" " + getName() + " " +getPrice() ;
+    public String toString(int i) {
+        return  getName() + " " + getPrice();
     }
 }

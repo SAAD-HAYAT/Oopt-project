@@ -35,15 +35,15 @@ public class Cart extends MainMenu {
     public void display(ArrayList<MainMenu> stL) {
         if (getInput() == 1) {
             for (int i = 0; i <= 3; i++) {
-                System.out.println(stL.get(i).toString(i));
+                System.out.println(i + " " +stL.get(i).toString(i));
             }
         } else if (getInput() == 2) {
             for (int i = 4; i <= 7; i++) {
-                System.out.println(stL.get(i).toString(i));
+                System.out.println(i + " " +stL.get(i).toString(i));
             }
         } else if (getInput() == 3) {
             for (int i = 8; i <= 11; i++) {
-                System.out.println(stL.get(i).toString(i));
+                System.out.println(i + " " +stL.get(i).toString(i));
             }
         }
     }
@@ -63,7 +63,7 @@ public class Cart extends MainMenu {
             //do while
 
             this.items.add(stL.get(getInput()).toString(i));
-            System.out.println( items.get(j));
+            System.out.println(items.get(j));
             setTotal(getTotal() + stL.get(getInput()).getPrice());
             j++;
             System.out.println("Total :" + getTotal());

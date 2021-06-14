@@ -2,7 +2,7 @@
 
 abstract public class MainMenu {
     private int id;
-    private static int count;
+   // private static int count;
     private String name;
     private int price;
 

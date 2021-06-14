@@ -7,19 +7,59 @@ public class Cart extends MainMenu {
     ArrayList<String> items = new ArrayList<>();
     private int input;
     private int total;
+    private int choice;
+    private int flag;
+
+//    public int getFlag() {
+//        return flag;
+//    }
+
+//    public void setFlag(int flag) throws Exception{
+//        if(flag == 0 && flag == 1){
+//            this.flag = flag;
+//        }
+//        else{
+//            throw new Exception("WRONG INPUT :/");
+//        }
+//    }
+
     private int j=0;
 
-    public Cart(ArrayList<MainMenu> stL) {
+    public Cart(ArrayList<MainMenu> stL) throws Exception {
         userInput(stL,0);
 
     }
+
+
+    public int getChoice() {
+        return choice;
+    }
+    public void setChoice(int choice) throws Exception {
+
+        if(getInput()==1 && choice >= 0 && choice <= 3 ) {
+            this.choice = choice;
+        }else if(getInput()==2 && choice >= 4 && choice <= 7 )  {
+            this.choice = choice;
+        }else if(getInput()==3 && choice >= 8 && choice <= 11 )  {
+            this.choice = choice;
+        }
+        else{
+            throw new Exception("Invalid Choice");
+        }
+    }
+
 
     public int getInput() {
         return input;
     }
 
-    public void setInput(int input) {
-        this.input = input;
+    public void setInput(int input) throws Exception {
+        if(input >= 1 && input <= 3){
+            this.input = input;
+        }
+        else{
+            throw new Exception("Must be between 1-3");
+        }
     }
 
     public int getTotal() {
@@ -49,31 +89,33 @@ public class Cart extends MainMenu {
     }
 
 
-    public void userInput(ArrayList<MainMenu> stL,int i) {
+    public void userInput(ArrayList<MainMenu> stL,int i) throws Exception{
         int flag = 0;
         j=0;
         do {
-            System.out.println("1)Starters\n" + "2)BBQ\n" + "3)FastFood");
-            System.out.println("Select a type");
+            System.out.println("\tSTARTERS\t|\t" + "BBQ\t\t|\t" + "FAST-FOOD\t|\t");
+            System.out.println("PRESS 1 FOR STARTERS, 2 FOR BBQ, 3 FOR FAST-FOOD");
+            System.out.println("SELECT YOUR PREFERENCE:");
+
             Scanner Sc = new Scanner(System.in);
             setInput(Sc.nextInt());
             display(stL);
-            System.out.println("Enter your choice");
-            setInput(Sc.nextInt());
+            System.out.println("Enter Your Choice:");
+            setChoice(Sc.nextInt());
             //do while
 
             this.items.add(stL.get(getInput()).toString(i));
             System.out.println(items.get(j));
             setTotal(getTotal() + stL.get(getInput()).getPrice());
             j++;
-            System.out.println("Total :" + getTotal());
-            System.out.println("Do you want to add more then press 0\n or want to exit press 1");
+            System.out.println("Total: " + getTotal());
+            System.out.println("Willing to add more item in your cart?\nPress 0 for that, 1 to EXIT!");
             Scanner Sc2 = new Scanner(System.in);
             flag = Sc2.nextInt();
             //do while
         }
         while (flag == 0);
-        items.add("Total :" +getTotal());
+        items.add("Total: " +getTotal());
         //code to create a new file.
         File cart = new File("cart.txt");
         try {
@@ -99,9 +141,6 @@ public class Cart extends MainMenu {
 
         }
         items.clear();
-//        for (i = 0; i <= j; i++) {
-//            System.out.println(items.get(i));
-//        }
     }
 }
 
